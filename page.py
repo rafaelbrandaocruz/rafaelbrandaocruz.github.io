@@ -13,7 +13,7 @@ smtp_server = 'smtp-mail.outlook.com'
 smtp_port = 587
 smtp_login = 'suzanadirra@hotmail.com'  # Seu e-mail do Outlook
 smtp_password = 'ThisIsSuzy24'  # Sua senha de login ou senha de aplicativo se a 2FA estiver ativada
-email_sender = suzanadirra@hotmail.com  # O remetente é o seu login SMTP
+email_sender = 'suzanadirra@hotmail.com'  # O remetente é o seu login SMTP
 email_receiver = 'rfl.brc@gmail.com'  # Destinatário do e-mail
 
 # Função para calcular o hash do HTML da página
