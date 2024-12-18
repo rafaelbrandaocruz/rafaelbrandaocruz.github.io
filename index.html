@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitoramento de Site</title>
+    <title>Monitoramento</title>
 </head>
 <body>
     <h1>Monitoramento de Mudanças no Site</h1>
@@ -55,5 +55,18 @@
         // Solicitar permissão de notificação quando carregar a página
         askNotificationPermission();
     </script>
+    <script>
+    // Verificar se o Service Worker é suportado pelo navegador
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+            .then(function(registration) {
+                console.log('Service Worker registrado com sucesso:', registration);
+            })
+            .catch(function(error) {
+                console.log('Falha ao registrar o Service Worker:', error);
+            });
+    }
+</script>
+
 </body>
 </html>
