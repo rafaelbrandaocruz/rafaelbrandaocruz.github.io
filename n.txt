@@ -1,0 +1,43 @@
+import requests
+from bs4 import BeautifulSoup
+from plyer import notification
+import time
+
+# URL do site a ser monitorado
+url = "https://folha.uol.com.br"
+# Salve o conteúdo anterior do site para comparação
+conteudo_anterior = ""
+
+# Função para verificar mudanças no site
+def verificar_mudancas():
+    global conteudo_anterior
+    try:
+        # Faz a requisição ao site
+        response = requests.get(url)
+        response.raise_for_status()  # Verifica se a requisição foi bem-sucedida
+        
+        # Analisa o conteúdo com BeautifulSoup
+        soup = BeautifulSoup(response.text, 'html.parser')
+        conteudo_atual = soup.get_text()
+
+        # Compara o conteúdo atual com o anterior
+        if conteudo_anterior and conteudo_anterior != conteudo_atual:
+            # Envia uma notificação
+            notification.notify(
+                title="Mudança detectada!",
+                message=f"O site {url} foi alterado.",
+                timeout=10
+            )
+        conteudo_anterior = conteudo_atual  # Atualiza o conteúdo anterior
+    except Exception as e:
+        # Envia uma notificação em caso de erro
+        notification.notify(
+            title="Erro ao verificar o site",
+            message=str(e),
+            timeout=10
+        )
+
+# Loop para verificar o site periodicamente
+while True:
+    verificar_mudancas()
+    time.sleep(60)  # Aguarda 60 segundos antes da próxima verificação
