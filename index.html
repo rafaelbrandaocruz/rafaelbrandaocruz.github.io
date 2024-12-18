@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Site</title>
+</head>
+<body>
+    <h1>Monitoramento de Mudanças no Site</h1>
+    <p>Este site monitorará alterações e enviará notificações quando houver mudanças.</p>
+
+    <script>
+        const siteURL = 'https://www.folha.uol.com.br';  // URL do site para monitorar
+        let lastContent = '';
+
+        // Função para verificar alterações no site
+        async function monitorarSite() {
+            const response = await fetch(siteURL);
+            const text = await response.text();
+
+            if (text !== lastContent) {
+                lastContent = text;
+                console.log("Mudança detectada no site!");
+                // Enviar notificação quando houver uma mudança
+                sendNotification();
+            } else {
+                console.log("Nenhuma mudança detectada.");
+            }
+        }
+
+        // Função para enviar a notificação
+        function sendNotification() {
+            if (Notification.permission === "granted") {
+                new Notification("Mudança no Site!", {
+                    body: "O conteúdo do site foi alterado!",
+                    icon: "https://www.seusite.com/favicon.ico",
+                });
+            }
+        }
+
+        // Função para solicitar permissão de notificação
+        function askNotificationPermission() {
+            if (Notification.permission !== "granted") {
+                Notification.requestPermission().then(permission => {
+                    if (permission === "granted") {
+                        console.log("Permissão para notificações concedida.");
+                    }
+                });
+            }
+        }
+
+        // Verificar mudanças no site periodicamente
+        setInterval(monitorarSite, 60000);  // A cada 60 segundos
+
+        // Solicitar permissão de notificação quando carregar a página
+        askNotificationPermission();
+    </script>
+</body>
+</html>
