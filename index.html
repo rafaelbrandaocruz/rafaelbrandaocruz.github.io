@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitoramento</title>
+    <title>Monitoramento de Site</title>
 </head>
 <body>
     <h1>Monitoramento de Mudanças no Site</h1>
     <p>Este site monitorará alterações e enviará notificações quando houver mudanças.</p>
+
+    <!-- Botão para solicitar permissão -->
+    <button id="permitirNotificacoesBtn">Ativar Notificações</button>
 
     <script>
         const siteURL = 'https://www.folha.uol.com.br';  // URL do site para monitorar
@@ -40,6 +43,7 @@
 
         // Função para solicitar permissão de notificação
         function askNotificationPermission() {
+            // Solicitar permissão apenas após a interação do usuário
             if (Notification.permission !== "granted") {
                 Notification.requestPermission().then(permission => {
                     if (permission === "granted") {
@@ -49,12 +53,16 @@
             }
         }
 
+        // Função que será chamada quando o usuário clicar no botão
+        document.getElementById('permitirNotificacoesBtn').addEventListener('click', function() {
+            askNotificationPermission();
+        });
+
         // Verificar mudanças no site periodicamente
         setInterval(monitorarSite, 60000);  // A cada 60 segundos
-
-        // Solicitar permissão de notificação quando carregar a página
-        askNotificationPermission();
     </script>
+
+    
     <script>
     // Verificar se o Service Worker é suportado pelo navegador
     if ('serviceWorker' in navigator) {
@@ -67,6 +75,9 @@
             });
     }
 </script>
+</body>
+</html>
+
 
 </body>
 </html>
