@@ -9,77 +9,25 @@
     <h1>Monitoramento de Mudanças no Site</h1>
     <p>Este site monitorará alterações e enviará notificações quando houver mudanças.</p>
 
-    <!-- Botão para solicitar permissão -->
-    <button id="permitirNotificacoesBtn">Ativar Notificações</button>
+    <iframe id="iframe" src="https://time.is/Fortaleza" style="display:none;"></iframe>
 
     <script>
-        const siteURL = 'https://time.is/Fortaleza';  // URL do site para monitorar
-        let lastContent = '';
-
-        // Função para verificar alterações no site
-        async function monitorarSite() {
-            const response = await fetch(siteURL);
-            const text = await response.text();
-
-            alert(response);
-
-            if (text !== lastContent) {
-                lastContent = text;
-                console.log("Mudança detectada no site!");
-                // Enviar notificação quando houver uma mudança
-                sendNotification();
-            } else {
-                console.log("Nenhuma mudança detectada.");
+        // Escutando a mensagem do iframe
+        window.addEventListener('message', (event) => {
+            if (event.origin !== 'https://www.seusite.com') {
+                return; // Ignorar mensagens de origens não confiáveis
             }
-        }
 
-        // Função para enviar a notificação
-        function sendNotification() {
-            if (Notification.permission === "granted") {
-                new Notification("Mudança no Site!", {
-                    body: "O conteúdo do site foi alterado!",
-                    icon: "https://rafaelbrandaocruz.github.io/favicon.ico",
-                });
-            }
-        }
-
-        // Função para solicitar permissão de notificação
-        function askNotificationPermission() {
-            // Solicitar permissão apenas após a interação do usuário
-            if (Notification.permission !== "granted") {
-                Notification.requestPermission().then(permission => {
-                    if (permission === "granted") {
-                        console.log("Permissão para notificações concedida.");
-                    }
-                });
-            }
-        }
-
-        // Função que será chamada quando o usuário clicar no botão
-        document.getElementById('permitirNotificacoesBtn').addEventListener('click', function() {
-            askNotificationPermission();
+            const data = event.data;
+            console.log("Dados recebidos do iframe:", data);
+            // Aqui você pode processar os dados e verificar mudanças
         });
 
-        // Verificar mudanças no site periodicamente
-        setInterval(monitorarSite, 6000);  // A cada 60 segundos
+        // Enviar uma mensagem para o iframe (caso o site externo suporte)
+        const iframe = document.getElementById('iframe');
+        iframe.onload = () => {
+            iframe.contentWindow.postMessage('Pedido de dados', 'https://www.seusite.com');
+        };
     </script>
-
-    
-    <script>
-    // Verificar se o Service Worker é suportado pelo navegador
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-            .then(function(registration) {
-                console.log('Service Worker registrado com sucesso:', registration);
-            })
-            .catch(function(error) {
-                console.log('Falha ao registrar o Service Worker:', error);
-            });
-    }
-</script>
-</body>
-</html>
-
-
 </body>
 </html>
