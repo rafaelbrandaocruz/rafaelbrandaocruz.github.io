@@ -14,7 +14,7 @@
     <script>
         // Escutando a mensagem do iframe
         window.addEventListener('message', (event) => {
-            if (event.origin !== 'https://www.seusite.com') {
+            if (event.origin !== 'https://time.is/Fortaleza') {
                 return; // Ignorar mensagens de origens não confiáveis
             }
 
@@ -26,7 +26,7 @@
         // Enviar uma mensagem para o iframe (caso o site externo suporte)
         const iframe = document.getElementById('iframe');
         iframe.onload = () => {
-            iframe.contentWindow.postMessage('Pedido de dados', 'https://www.seusite.com');
+            iframe.contentWindow.postMessage('Pedido de dados', 'https://time.is/Fortaleza');
         };
     </script>
 </body>
