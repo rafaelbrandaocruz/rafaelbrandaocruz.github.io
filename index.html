@@ -21,6 +21,8 @@
             const response = await fetch(siteURL);
             const text = await response.text();
 
+            alert(response);
+
             if (text !== lastContent) {
                 lastContent = text;
                 console.log("Mudança detectada no site!");
