@@ -1,1 +1,27 @@
-oii
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem Dinâmica</title>
+    <script>
+        // Função para retornar "vez" ou "vezes" com base no valor de x
+        function getMessage(x) {
+            return x <= 1 ? "vez" : "vezes";
+        }
+
+        // Função para atualizar a mensagem na página
+        function updateMessage() {
+            const x = parseInt(document.getElementById("inputValue").value) || 0; // Obtém o valor do input
+            const msg = getMessage(x);
+            document.getElementById("result").textContent = `O valor é ${x} ${msg}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Mensagem Dinâmica</h1>
+    <label for="inputValue">Digite um valor:</label>
+    <input type="number" id="inputValue" value="1" oninput="updateMessage()">
+    <p id="result">O valor é 1 vez</p>
+</body>
+</html>
