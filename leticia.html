@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
             --bg-lavender: #f4effa;
@@ -121,12 +124,12 @@
             box-shadow: var(--shadow);
             border: 1px solid rgba(226, 217, 243, 0.6);
             position: relative;
-            
+
             /* Estado inicial para animação de rolagem (invisível e deslocado) */
             opacity: 0;
             transform: translateY(40px) scale(0.98);
-            transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                        transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1),
+                transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         /* Classe ativada via JavaScript quando a imagem entra no viewport */
@@ -144,9 +147,17 @@
         }
 
         /* Diferentes alturas de aspecto para dinamismo */
-        .aspect-landscape { padding-bottom: 66.66%; }
-        .aspect-portrait { padding-bottom: 125%; }
-        .aspect-square { padding-bottom: 100%; }
+        .aspect-landscape {
+            padding-bottom: 66.66%;
+        }
+
+        .aspect-portrait {
+            padding-bottom: 125%;
+        }
+
+        .aspect-square {
+            padding-bottom: 100%;
+        }
 
         .photo-card img {
             position: absolute;
@@ -212,7 +223,7 @@
             max-width: 90%;
             max-height: 85vh;
             border-radius: 8px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
 
         .lightbox-close {
@@ -244,16 +255,37 @@
 
         /* Keyframe Animations */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
+
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsividade */
@@ -262,15 +294,18 @@
                 grid-template-columns: 1fr;
                 gap: 25px;
             }
+
             .column-right {
                 margin-top: 0;
             }
+
             header h1 {
                 font-size: 2.2rem;
             }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Cabeçalho -->
@@ -288,21 +323,33 @@
         <h1>festa de formatura da letícia</h1>
         <p class="subtitle">Licenciatura em Letras</p>
         <div class="divider"></div>
-        <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--text-muted); font-size: 1.1rem;">
+        <p
+            style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--text-muted); font-size: 1.1rem;">
             "A palavra é o meu domínio sobre o mundo."
         </p>
     </header>
 
     <!-- Galeria de Fotos em Layout Mosaico Assimétrico -->
     <main class="gallery-container">
-        
+
         <!-- Coluna da Esquerda -->
         <div class="column column-left">
-            
+
             <div class="photo-card">
                 <div class="photo-img-wrapper aspect-landscape">
                     <!-- Substitua o 'src' pela URL ou caminho da sua foto local -->
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop" alt="Momento da Graduação">
+                    <img src="/images/leticia/IMG_2124.jpg" alt="Momento da Graduação">
+                </div>
+                <div class="photo-caption">
+                    <span>O grande momento</span>
+                    <span class="tag">Cerimônia</span>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-img-wrapper aspect-landscape">
+                    <!-- Substitua o 'src' pela URL ou caminho da sua foto local -->
+                    <img src="/images/leticia/IMG_2130.jpg" alt="Momento da Graduação">
                 </div>
                 <div class="photo-caption">
                     <span>O grande momento</span>
@@ -312,32 +359,18 @@
 
             <div class="photo-card">
                 <div class="photo-img-wrapper aspect-portrait">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" alt="Retrato da Formanda">
+                    <img src="/images/leticia/IMG_2135.jpg" alt="Decoração da Festa">
                 </div>
                 <div class="photo-caption">
-                    <span>Detalhes e sorrisos</span>
-                    <span class="tag">Retrato</span>
+                    <span>A elegância da noite</span>
+                    <span class="tag">Ambiente</span>
                 </div>
             </div>
 
-            <div class="photo-card">
-                <div class="photo-img-wrapper aspect-landscape">
-                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop" alt="Decoração e Brinde">
-                </div>
-                <div class="photo-caption">
-                    <span>Celebrando com quem amamos</span>
-                    <span class="tag">Festa</span>
-                </div>
-            </div>
 
-        </div>
-
-        <!-- Coluna da Direita (Deslocada para o visual elegante do seu esboço) -->
-        <div class="column column-right">
-            
             <div class="photo-card">
                 <div class="photo-img-wrapper aspect-portrait">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Decoração da Festa">
+                    <img src="/images/leticia/IMG_2153.jpg" alt="Decoração da Festa">
                 </div>
                 <div class="photo-caption">
                     <span>A elegância da noite</span>
@@ -346,24 +379,107 @@
             </div>
 
             <div class="photo-card">
-                <div class="photo-img-wrapper aspect-square">
-                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=800&auto=format&fit=crop" alt="Amigos e Família">
+                <div class="photo-img-wrapper aspect-portrait">
+                    <img src="/images/leticia/IMG_2155.jpg" alt="Decoração da Festa">
                 </div>
                 <div class="photo-caption">
-                    <span>Memórias inesquecíveis</span>
-                    <span class="tag">Especial</span>
+                    <span>A elegância da noite</span>
+                    <span class="tag">Ambiente</span>
                 </div>
             </div>
 
             <div class="photo-card">
-                <div class="photo-img-wrapper aspect-landscape">
-                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop" alt="Baile e Dança">
+                <div class="photo-img-wrapper aspect-portrait">
+                    <img src="/images/leticia/IMG_2158.jpg" alt="Decoração da Festa">
                 </div>
                 <div class="photo-caption">
-                    <span>Até o fim da noite</span>
-                    <span class="tag">Baile</span>
+                    <span>A elegância da noite</span>
+                    <span class="tag">Ambiente</span>
                 </div>
             </div>
+
+            <div class="photo-card">
+                <div class="photo-img-wrapper aspect-portrait">
+                    <img src="/images/leticia/IMG_2162.jpg" alt="Decoração da Festa">
+                </div>
+                <div class="photo-caption">
+                    <span>A elegância da noite</span>
+                    <span class="tag">Ambiente</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Coluna da Direita (Deslocada para o visual elegante do seu esboço) -->
+        <div class="column column-right">
+
+            <div class="photo-card">
+                <div class="photo-img-wrapper aspect-portrait">
+                    <img src="/images/leticia/IMG_2129.jpg" alt="Decoração da Festa">
+                </div>
+                <div class="photo-caption">
+                    <span>A elegância da noite</span>
+                    <span class="tag">Ambiente</span>
+                </div>
+            </div>
+            <div class="photo-card">
+                <div class="photo-img-wrapper aspect-portrait">
+                    <img src="/images/leticia/IMG_2133.jpg" alt="Decoração da Festa">
+                </div>
+                <div class="photo-caption">
+                    <span>A elegância da noite</span>
+                    <span class="tag">Ambiente</span>
+                </div>
+            </div>
+            <div class="photo-card">
+                <div class="photo-img-wrapper aspect-portrait">
+                    <img src="/images/leticia/IMG_2147.jpg" alt="Decoração da Festa">
+                </div>
+                <div class="photo-caption">
+                    <span>A elegância da noite</span>
+                    <span class="tag">Ambiente</span>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-img-wrapper aspect-portrait">
+                    <img src="/images/leticia/IMG_2154.jpg" alt="Decoração da Festa">
+                </div>
+                <div class="photo-caption">
+                    <span>A elegância da noite</span>
+                    <span class="tag">Ambiente</span>
+                </div>
+            </div>
+            <div class="photo-card">
+                <div class="photo-img-wrapper aspect-portrait">
+                    <img src="/images/leticia/IMG_2157.jpg" alt="Decoração da Festa">
+                </div>
+                <div class="photo-caption">
+                    <span>A elegância da noite</span>
+                    <span class="tag">Ambiente</span>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-img-wrapper aspect-portrait">
+                    <img src="/images/leticia/IMG_2160.jpg" alt="Decoração da Festa">
+                </div>
+                <div class="photo-caption">
+                    <span>A elegância da noite</span>
+                    <span class="tag">Ambiente</span>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-img-wrapper aspect-portrait">
+                    <img src="/images/leticia/IMG_2171.jpg" alt="Decoração da Festa">
+                </div>
+                <div class="photo-caption">
+                    <span>A elegância da noite</span>
+                    <span class="tag">Ambiente</span>
+                </div>
+            </div>
+
 
         </div>
 
@@ -428,4 +544,5 @@
         });
     </script>
 </body>
+
 </html>
